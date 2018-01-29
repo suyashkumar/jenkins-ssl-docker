@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+LABEL maintainer="suyash@suyashkumar.com"
 USER jenkins
 WORKDIR /usr/src/work
 COPY get-docker.sh .
