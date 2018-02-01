@@ -15,3 +15,17 @@ To run with your own certificates:
 ```sh
 docker run -p 443:4430 -v jenkins_home:/var/jenkins_home -v YOUR_PRIV_KEY_FILE:/var/lib/jenkins/pk -v YOUR_CERT:/var/lib/jenkins/cert suyashkumar/jenkins-ssl-docker
 ```
+
+A sample `Jenkinsfile` you can have in your target repository to initiate a docker build based on its `Dockerfile` looks something like this:
+```
+pipeline {
+     agent { dockerfile true }
+      stages {
+          stage('Test') {
+              steps {
+		            // any additional steps you may want can be here.
+              }
+          }
+      }
+ }
+```
